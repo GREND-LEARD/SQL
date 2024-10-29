@@ -1,12 +1,19 @@
-create table auditoria (
-    id int primary key,
-    descripcion varchar(100),
-    fecha datetime
-    );
+CREATE DATABASE auditing;
+USE auditing;
 
-    create procedure registra_auditoria(
-        begin
-            insert into auditoria (descripcion, fecha) values (descripcion, fecha)
-            values('Auditoria de la base de datos',now());
-            end;
-        );
+CREATE TABLE auditoria (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(100),
+    fecha DATETIME
+);
+
+DELIMITER //
+CREATE PROCEDURE registra_auditoria()
+BEGIN
+    INSERT INTO auditoria (descripcion, fecha) VALUES ('Auditoria de la base de datos', NOW());
+END;
+//
+DELIMITER ;
+
+CALL registra_auditoria();
+SELECT * FROM auditoria;
