@@ -1,3 +1,7 @@
+create database clave_secreta;
+use clave_secreta;
+
+
 
 -- Crea la tabla Clientes
 CREATE TABLE Clientes (
