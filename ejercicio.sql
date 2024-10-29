@@ -17,6 +17,8 @@ VALUES
 ('Ana', 'Gómez', 'ana.gomez@example.com', '4222222222222222', AES_ENCRYPT('11/24', 'clave_secreta'), AES_ENCRYPT('456', 'clave_secreta'));
 
 
+
+
 SELECT nombre, apellido, mail, numtarjetac,
       cast( AES_DECRYPT(fechavto, 'clave_secreta'
       )as char) AS fecha_descifrada,
